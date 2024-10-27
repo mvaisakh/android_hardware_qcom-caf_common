@@ -2,8 +2,10 @@ SOONG_CONFIG_NAMESPACES += statixQcomVars
 SOONG_CONFIG_statixQcomVars += \
     qti_vibrator_effect_lib \
     qti_vibrator_use_effect_stream \
+    sdmcore_has_is_display_hw_available_func \
     should_wait_for_qsee \
     supports_extended_compress_format \
+    target_gptutils_lib \
     uses_pre_uplink_features_netmgrd \
     uses_qti_camera_device
 
@@ -19,9 +21,13 @@ SOONG_CONFIG_statixQcomVars_should_wait_for_qsee := $(TARGET_KEYMASTER_WAIT_FOR_
 SOONG_CONFIG_statixQcomVars_supports_extended_compress_format := $(AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT)
 SOONG_CONFIG_statixQcomVars_uses_pre_uplink_features_netmgrd := $(TARGET_USES_PRE_UPLINK_FEATURES_NETMGRD)
 SOONG_CONFIG_statixQcomVars_uses_qti_camera_device := $(TARGET_USES_QTI_CAMERA_DEVICE)
+SOONG_CONFIG_statixQcomVars_sdmcore_has_is_display_hw_available_func := $(TARGET_SDMCORE_HAS_IS_DISPLAY_HW_AVAILABLE_FUNC)
+SOONG_CONFIG_statixQcomVars_target_gptutils_lib := $(TARGET_GPTUTILS_LIB)
 
 # Set default values
 TARGET_QTI_VIBRATOR_EFFECT_LIB ?= libqtivibratoreffect
+TARGET_SDMCORE_HAS_IS_DISPLAY_HW_AVAILABLE_FUNC ?= true
+TARGET_GPTUTILS_LIB ?= libgptutils.qti
 
 # Soong value variables
 ifneq ($(filter $(QSSI_SUPPORTED_PLATFORMS),$(TARGET_BOARD_PLATFORM)),)

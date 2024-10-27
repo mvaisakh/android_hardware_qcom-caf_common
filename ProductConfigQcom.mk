@@ -1,5 +1,4 @@
 include hardware/qcom-caf/common/qcom_boards.mk
-include hardware/qcom-caf/common/qcom_target.mk
 
 UM_4_4_FAMILY := msm8998 sdm660
 UM_4_9_FAMILY := msm8917 msm8937 msm8952 msm8953 msm8996 sdm845
@@ -176,6 +175,11 @@ endif
 # Add nxp opensource to PRODUCT_SOONG_NAMESPACES if needed
 ifeq ($(USE_NQ_NFC),true)
     PRODUCT_SOONG_NAMESPACES += vendor/nxp/opensource
+endif
+
+# Add bootctrl to namespace by default for 6.1+ (For AIDL Bootctrl)
+ifeq ($(call is-board-platform-in-list, $(UM_6_1_FAMILY)),true)
+    PRODUCT_SOONG_NAMESPACES += hardware/qcom-caf/bootctrl
 endif
 
 # Add wlan to PRODUCT_SOONG_NAMESPACES

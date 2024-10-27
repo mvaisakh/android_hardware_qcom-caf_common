@@ -105,3 +105,6 @@ PRODUCT_PACKAGES += \
     rfs_msm_wpss_readonly_vendor_firmware_symlink \
     rfs_msm_wpss_readwrite_symlink \
     rfs_msm_wpss_shared_symlink
+
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
+    hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
